@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-
+//exporting Document for type checking
 
 export interface Message extends Document {
     content: string;
@@ -69,6 +69,7 @@ const UserSchema: Schema<User> = new Schema({
     }
 })
 
-
+//Checking if "User" model exists, if not, create it
+//mongoose.Model<User> ====> typescript
 const UserModel=(mongoose.models.User as mongoose.Model<User>) || (mongoose.model<User>("User", UserSchema));
 export default UserModel;
